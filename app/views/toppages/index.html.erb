@@ -1,0 +1,19 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+    <div class="text-center">
+      <h1><u>キャラクターランキング一覧</u></h1>
+    </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h2>キャラクターについて思ったことをコメントしてみる</h2>
+      <%= link_to 'スマブラSP攻略に登録する', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+  <div class="text-center">
+    <h1><u>キャラクターランキング一覧</u></h1>
+  </div>
+<% end %>
+
+
+  
