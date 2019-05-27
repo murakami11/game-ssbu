@@ -12,18 +12,15 @@
 </style>
 
 <div id="characters">
-  <input class="search" placeholder="名前検索" />
-  <button class="sort" data-sort="character.rank">
-    評価順に並び替える
-  </button>
+  <input class="search" placeholder="キーワードで絞り込む" />
   <div class="container">
     <div class="row">
       <% if characters.any? %>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th width="200px">名前</th>
-              <th width="70px">評価</th>
+              <th width="200px"><button class="sort" data-sort="character.name">名前</button></th>
+              <th width="80px"><button class="sort" data-sort="character.rank">評価</button></th>
               <th>詳細</th>
             </tr>
           </thead>
@@ -32,7 +29,7 @@
               <tr>
                 <th class="character.name"><%= character.name %></th>
                 <td class="character.rank"><%= character.rank %></td>
-                <td><%= link_to "#{character.name}の詳細を見る", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
+                <td><%= link_to "#{character.name}の詳細ページ", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
               </tr>
             <% end %>
           </tbody>
