@@ -1,0 +1,54 @@
+<style>
+    .table-bordered th,
+    .table-bordered td {
+    text-align: center;
+  }
+ </style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= @character.name %></th>
+            <td><%= @character.rank %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<h4><%= @character.name %>の考察</h4>
+
+<div class="jumbotron">
+  <%= @character.description %>
+</div>
+
+<h4>コメント一覧</h4>
+<% @comments.each do |c| %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <!--<a href="/users/<%= @comment_user_id %>"><%= c.id %> <%= c.user.name %></a><br>-->
+      <p><%= c.id %> <%= c.user.name %></p>
+      <%= c.content %>
+    </li>
+  </ul>
+<% end %>
+
+<p>本文</p>
+<%= form_for @comment do |f| %>
+  <%= hidden_field_tag :character_id, @character.id %>
+  <%= f.text_area :content, :cols => 100, :rows => 5 %>
+  <br>
+  <p><%= f.submit 'コメントする' %>(500文字以内)</p>
+<% end %>
+
+<p><%= link_to 'キャラクターランキング一覧に戻る', characters_path %></p>

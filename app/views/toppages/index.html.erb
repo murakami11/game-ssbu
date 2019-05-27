@@ -1,8 +1,7 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-    <div class="text-center">
-      <h1><u>キャラクターランキング一覧</u></h1>
-    </div>
+  <div class="text-center">
+    <h1><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h1>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -11,7 +10,7 @@
     </div>
   </div>
   <div class="text-center">
-    <h1><u>キャラクターランキング一覧</u></h1>
+    <h1><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h1>
   </div>
 <% end %>
 

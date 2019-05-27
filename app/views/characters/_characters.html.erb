@@ -1,0 +1,43 @@
+<style>
+  .table-bordered th,
+  .table-bordered td {
+    text-align: center;
+  }
+  .sort.desc:after {
+    content:"▼";
+  }
+  .sort.asc:after {
+    content:"▲";
+  }
+</style>
+
+<div id="characters">
+  <input class="search" placeholder="名前検索" />
+  <button class="sort" data-sort="character.rank">
+    評価順に並び替える
+  </button>
+  <div class="container">
+    <div class="row">
+      <% if characters.any? %>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th width="200px">名前</th>
+              <th width="70px">評価</th>
+              <th>詳細</th>
+            </tr>
+          </thead>
+          <tbody class="list">
+            <% characters.each do |character| %>
+              <tr>
+                <th class="character.name"><%= character.name %></th>
+                <td class="character.rank"><%= character.rank %></td>
+                <td><%= link_to "#{character.name}の詳細を見る", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+     <% end %>
+    </div>
+  </div>
+</div>
