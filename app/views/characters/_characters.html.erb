@@ -3,11 +3,18 @@
   .table-bordered td {
     text-align: center;
   }
+  .table-bordered th {
+    background-color: #EEEEEE;
+  }
   .sort.desc:after {
     content:"▼";
   }
   .sort.asc:after {
     content:"▲";
+  }
+  .table-bordered button {
+    border-style: none;
+    background-color: #EEEEEE;
   }
 </style>
 
@@ -19,15 +26,17 @@
         <table class="table table-bordered">
           <thead>
             <tr>
+              <th width="80px"><button class="sort" data-sort="character.id">No.</button></th>
               <th width="200px"><button class="sort" data-sort="character.name">名前</button></th>
-              <th width="80px"><button class="sort" data-sort="character.rank">評価</button></th>
+              <th width="90px"><button class="sort" data-sort="character.rank">評価</button></th>
               <th>詳細</th>
             </tr>
           </thead>
           <tbody class="list">
             <% characters.each do |character| %>
               <tr>
-                <th class="character.name"><%= character.name %></th>
+                <td class="character.id"><%= character.id %></td>
+                <td class="character.name"><%= character.name %><img src="<%= character.image %>" width="20"></td>
                 <td class="character.rank"><%= character.rank %></td>
                 <td><%= link_to "#{character.name}の詳細ページ", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
               </tr>
@@ -38,3 +47,5 @@
     </div>
   </div>
 </div>
+
+<p><u><%= link_to '初心者におすすめキャラクターを見る', page_path('about') %></u></p>

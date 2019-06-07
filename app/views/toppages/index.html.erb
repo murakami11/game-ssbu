@@ -1,18 +1,76 @@
+<style>
+  p {
+    margin-top: 100px;
+  }
+  h2 {
+    margin-top: 100px;
+  }
+  h3 {
+    margin: 30px;
+  }
+</style>
+
 <% if logged_in? %>
-  <div class="text-center">
-    <h1><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="text-center">
+          <div class="panel panel-warning">
+          	<div class="panel-heading">
+        		  <h3><u><%= link_to '初心者におすすめキャラクター', page_path('about') %></u></h3>
+          	</div>
+          	<ul class="list-group">
+            	<li class="list-group-item">スマブラを初めてやる人</li>
+            	<li class="list-group-item">どのキャラを使えばいいか分からない人</li>
+          	</ul>
+          	</div>
+          	<div class="panel panel-success">
+	            <div class="panel-heading">
+        	    	<h3><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h3>
+            	</div>
+          	<ul class="list-group">
+            	<li class="list-group-item">自分の使っているキャラクターの評価を見たい人</li>
+            	<li class="list-group-item">評価の高いキャラクターを使いたい人</li>
+          	</ul>
+        	</div>
+        </div>
+      </div>
+    </div>
   </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h2>キャラクターについて思ったことをコメントしてみる</h2>
-      <%= link_to 'スマブラSP攻略に登録する', signup_path, class: 'btn btn-lg btn-primary' %>
+      <p><%= link_to 'スマブラSP攻略に登録する', signup_path, class: 'btn btn-lg btn-primary' %></p>
     </div>
   </div>
-  <div class="text-center">
-    <h1><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="text-center">
+          <div class="panel panel-warning">
+          	<div class="panel-heading">
+        		  <h3><u><%= link_to '初心者におすすめキャラクター', page_path('about') %></u></h3>
+          	</div>
+          	<ul class="list-group">
+            	<li class="list-group-item">スマブラを初めてやる人</li>
+            	<li class="list-group-item">どのキャラを使えばいいか分からない人</li>
+          	</ul>
+          	</div>
+          	<div class="panel panel-success">
+	            <div class="panel-heading">
+        	    	<h3><u><%= link_to 'キャラクターランキング一覧', characters_path %></u></h3>
+            	</div>
+          	<ul class="list-group">
+            	<li class="list-group-item">自分の使っているキャラクターの評価を見たい人</li>
+            	<li class="list-group-item">評価の高いキャラクターを使いたい人</li>
+          	</ul>
+        	</div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
 
 
-<%= link_to 'about', page_path('about') %>
+

@@ -1,1 +1,76 @@
-ここはabout.html.erbです。
+<style>
+  .table-bordered th,
+  .table-bordered td {
+    text-align: center;
+  }
+  .table-bordered th {
+    background-color: #EEEEEE;
+  }
+</style>
+
+<h1 class="text-center">初心者におすすめの10キャラ</h1>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th width="60">順位</th>
+			<th width="200">名前</th>
+			<th>理由</th>
+    	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td><%= link_to Character.find_by(id: 24).name, Character.find_by(id: 24) %><%= image_tag Character.find_by(id: 24).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+			
+  	</tr>
+		<tr>
+			<td>2</td>
+			<td><%= link_to Character.find_by(id: 23).name, Character.find_by(id: 23) %><%= image_tag Character.find_by(id: 23).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td><%= link_to Character.find_by(id: 65).name, Character.find_by(id: 65) %><%= image_tag Character.find_by(id: 65).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td><%= link_to Character.find_by(id: 28).name, Character.find_by(id: 28) %><%= image_tag Character.find_by(id: 28).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td><%= link_to Character.find_by(id: 47).name, Character.find_by(id: 47) %><%= image_tag Character.find_by(id: 47).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td><%= link_to Character.find_by(id: 6).name, Character.find_by(id: 6) %><%= image_tag Character.find_by(id: 6).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td><%= link_to Character.find_by(id: 68).name, Character.find_by(id: 68) %><%= image_tag Character.find_by(id: 68).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td><%= link_to Character.find_by(id: 11).name, Character.find_by(id: 11) %><%= image_tag Character.find_by(id: 11).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td><%= link_to Character.find_by(id: 1).name, Character.find_by(id: 1) %><%= image_tag Character.find_by(id: 1).image, width: 20 %></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td><%= link_to Character.find_by(id: 26).name, Character.find_by(id: 26) %><%= image_tag Character.find_by(id: 26).image, width: 20 %></td></td>
+			<td>コンボが簡単で扱いやすい。</td>
+		</tr>
+  </tbody>
+</table>
+
+<p><u><%= link_to 'キャラクターランキング一覧を見る', characters_path %></u></p>

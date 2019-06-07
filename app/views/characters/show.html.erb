@@ -3,7 +3,7 @@
     .table-bordered td {
     text-align: center;
   }
- </style>
+</style>
 
 <div class="container">
   <div class="row">
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <tr>
-            <th><%= @character.name %></th>
+            <th><%= @character.name %><img src="<%= @character.image %>" width="20"></th>
             <td><%= @character.rank %></td>
           </tr>
         </tbody>
@@ -29,7 +29,7 @@
 <h4><%= @character.name %>の考察</h4>
 
 <div class="jumbotron">
-  <%= @character.description %>
+  <%= simple_format(@character.description)%>
 </div>
 
 <h4>コメント一覧</h4>
@@ -43,12 +43,22 @@
   </ul>
 <% end %>
 
-<p>本文</p>
-<%= form_for @comment do |f| %>
-  <%= hidden_field_tag :character_id, @character.id %>
-  <%= f.text_area :content, :cols => 100, :rows => 5 %>
-  <br>
-  <p><%= f.submit 'コメントする' %>(500文字以内)</p>
+<%= will_paginate @comments, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+
+<% if logged_in? %>
+  <h4>コメントを書き込む</h4>
+  <%= form_for @comment do |f| %>
+    <%= hidden_field_tag :character_id, @character.id %>
+    <%= f.text_area :content, :cols => 100, :rows => 5 %><br>
+    <%= f.submit 'コメントする' %>(500文字以内)
+  <% end %>
+<% else %>
+  <p>書き込むには<%= link_to "ログイン", login_path %>、もしくは<%= link_to "ユーザー登録", signup_path %>をしましょう！</p>
 <% end %>
 
-<p><%= link_to 'キャラクターランキング一覧に戻る', characters_path %></p>
+<p><u><%= link_to 'キャラクターランキング一覧に戻る', characters_path %></u></p>
+<p><u><%= link_to '初心者におすすめキャラクターに戻る', page_path('about') %></u></p>
+
+<% if logged_in? and current_user.admin? %>
+  <p><u><%= link_to 'このキャラクターの情報を変更する', edit_character_path(@character) %></u></p>
+<% end %>

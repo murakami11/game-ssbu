@@ -1,0 +1,25 @@
+<style>
+  p {
+    margin-top: 30px;
+  }
+</style>
+
+<h2><%= @character.name %>の編集ページ</h2>
+
+<p>キャラクター編集</p>
+<%= form_for(@character) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "変更" %>
+
+<p>評価の編集</p>
+<%= f.text_field :rank %>
+<%= f.submit "変更" %><br>
+
+<p>考察の編集</p>
+<%= f.text_area :description, :cols => 100, :rows => 20 %>
+<%= f.submit "変更" %>
+
+<p>画像の編集</p>
+<%= f.file_field :image %>
+<%= f.submit "変更" %>
+<% end %>

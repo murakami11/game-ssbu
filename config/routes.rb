@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-
   root to: 'toppages#index'
   
   get 'login', to: 'sessions#new'
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
   
-  resources :characters, only: [:index, :show]
+  resources :characters, only: [:index, :show, :edit, :update]
   
   resources :comments, only: [:create]
 end
