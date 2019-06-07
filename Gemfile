@@ -60,3 +60,7 @@ gem 'carrierwave'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+group :production do
+  gem 'pg', '0.21.0'
+end
