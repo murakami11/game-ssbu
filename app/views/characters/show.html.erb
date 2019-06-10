@@ -56,9 +56,9 @@
   <p>書き込むには<%= link_to "ログイン", login_path %>、もしくは<%= link_to "ユーザー登録", signup_path %>をしましょう！</p>
 <% end %>
 
-<p><u><%= link_to 'キャラクターランキング一覧に戻る', characters_path %></u></p>
-<p><u><%= link_to '初心者におすすめキャラクターに戻る', page_path('about') %></u></p>
+<p class="underline"><%= link_to 'キャラクターランキング一覧に戻る', characters_path %></p>
+<p class="underline"><%= link_to '初心者におすすめキャラクターに戻る', page_path('about') %></p>
 
 <% if logged_in? and current_user.admin? %>
-  <p><u><%= link_to 'このキャラクターの情報を変更する', edit_character_path(@character) %></u></p>
+  <p class="underline"><%= link_to 'このキャラクターの情報を変更する', edit_character_path(@character) %></p>
 <% end %>

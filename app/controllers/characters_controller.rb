@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-    @comments = @character.comments.paginate(page: params[:page], per_page: 5)
+    @comments = @character.comments.paginate(page: params[:page], per_page: 10)
     @comment = Comment.new
   end
   
