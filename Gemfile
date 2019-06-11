@@ -57,6 +57,7 @@ gem 'kaminari'
 gem 'high_voltage'
 
 gem 'carrierwave'
+gem 'cloudinary'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
