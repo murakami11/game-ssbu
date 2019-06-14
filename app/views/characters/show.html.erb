@@ -38,7 +38,7 @@
     <li class="list-group-item">
       <!--<a href="/users/<%= @comment_user_id %>"><%= c.id %> <%= c.user.name %></a><br>-->
       <p><%= c.id %> <%= c.user.name %></p>
-      <%= c.content %>
+      <%= simple_format(c.content) %>
     </li>
   </ul>
 <% end %>
