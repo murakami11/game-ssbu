@@ -18,34 +18,35 @@
   }
 </style>
 
-<div id="characters">
-  <input class="search" placeholder="キーワードで絞り込む" />
-  <div class="container">
-    <div class="row">
-      <% if characters.any? %>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th width="80px"><button class="sort" data-sort="character.id">No.</button></th>
-              <th width="200px"><button class="sort" data-sort="character.name">名前</button></th>
-              <th width="90px"><button class="sort" data-sort="character.rank">評価</button></th>
-              <th>詳細</th>
-            </tr>
-          </thead>
-          <tbody class="list">
-            <% characters.each do |character| %>
-              <tr>
-                <td class="character.id"><%= character.id %></td>
-                <td class="character.name"><%= character.name %><img src="<%= character.image %>" width="20"></td>
-                <td class="character.rank"><%= character.rank %></td>
-                <td><%= link_to "#{character.name}の詳細ページ", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-     <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+      <div id="characters">
+        <input class="search" placeholder="キーワードで絞り込む" />
+          <% if characters.any? %>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th width="80px"><button class="sort" data-sort="character.id">No.</button></th>
+                  <th width="200px"><button class="sort" data-sort="character.name">名前</button></th>
+                  <th width="90px"><button class="sort" data-sort="character.rank">評価</button></th>
+                  <th>詳細</th>
+                </tr>
+              </thead>
+              <tbody class="list">
+                <% characters.each do |character| %>
+                  <tr>
+                    <td class="character.id"><%= character.id %></td>
+                    <td class="character.name"><%= character.name %><img src="<%= character.image %>" width="20"></td>
+                    <td class="character.rank"><%= character.rank %></td>
+                    <td><%= link_to "#{character.name}の詳細ページ", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+         <% end %>
+        </div>
+      <p class="underline"><%= link_to '初心者におすすめキャラクターを見る', page_path('about') %></p>
     </div>
   </div>
 </div>
-
-<p class="underline"><%= link_to '初心者におすすめキャラクターを見る', page_path('about') %></p>
