@@ -38,7 +38,7 @@
                   <tr>
                     <td class="character.id"><%= character.id %></td>
                     <td class="character.name"><%= character.name %><img src="<%= character.image %>" width="20"></td>
-                    <td class="character.rank"><%= character.rank %></td>
+                    <td class="character.rank" style="<%= rank_color(character.rank) %>"><%= character.rank %></td>
                     <td><%= link_to "#{character.name}の詳細ページ", character_path(character) %>:<%= character.description.truncate(10) %>(<%= character.comments.length%>)</td>
                   </tr>
                 <% end %>

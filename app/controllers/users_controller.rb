@@ -7,6 +7,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  
+  def comments
+    # params[:id]が必ず受け取れる。
+    @user = User.find(params[:id])
+    render :show
+  end
 
   def new
     @user = User.new

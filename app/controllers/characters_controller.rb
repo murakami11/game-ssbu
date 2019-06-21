@@ -22,6 +22,11 @@ class CharactersController < ApplicationController
     redirect_to @character
   end
   
+  def recommended
+    @characters = Character.where(id: [1, 3, 5, 7])
+    render :index
+  end
+  
   private
   def admin_check
     redirect_back(fallback_location: root_url) unless current_user.admin?

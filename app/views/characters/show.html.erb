@@ -18,7 +18,7 @@
         <tbody>
           <tr>
             <th><%= @character.name %><img src="<%= @character.image %>" width="20"></th>
-            <td><%= @character.rank %></td>
+            <td class="character.rank" style="<%= rank_color(@character.rank) %>"><%= @character.rank %></td>
           </tr>
         </tbody>
       </table>
